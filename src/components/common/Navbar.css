@@ -1,0 +1,11 @@
+.menu a.active{
+    background: #6ec1ff;
+    color: black;
+
+}
+.menu a{
+    font-weight: 500;
+}
+/* ul li{
+    color: white;
+} */
