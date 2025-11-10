@@ -1,9 +1,10 @@
 import React from 'react';
+import HomeSwiper from '../components/carousel/HomeSwiper';
 
 const Home = () => {
     return (
         <div>
-            <h1>this is home</h1>
+           <HomeSwiper></HomeSwiper>
         </div>
     );
 };
