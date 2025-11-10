@@ -19,14 +19,13 @@ import CarouselImg7 from "../../assets/SliderImage/c7.jpg";
 import CarouselImg8 from "../../assets/SliderImage/c8.jpg";
 import CarouselImg9 from "../../assets/SliderImage/c9.jpg";
 
-
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
 const HomeSwiper = () => {
   return (
     <div className="bg-[#f0f8ff]">
       <Swiper
-           spaceBetween={30}
+        spaceBetween={30}
         centeredSlides={true}
         autoplay={{
           delay: 2500,
@@ -36,87 +35,95 @@ const HomeSwiper = () => {
           clickable: true,
         }}
         navigation={true}
-        modules={[Autoplay, Pagination,Navigation]}
+        modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper container rounded-2xl mt-3"
       >
         <SwiperSlide>
-          <div className="w-full h-64 md:h-72 lg:h-150 ">
+          <div className="w-full h-64 md:h-72 lg:h-100 ">
             <img
               src={CarouselImg1}
-              alt="Dog 1"
+              alt="food image"
               className="w-full h-full object-cover overflow-hidden"
             />
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="w-full h-64 md:h-72 lg:h-150 ">
+          <div className="w-full h-64 md:h-72 lg:h-100 ">
             <img
               src={CarouselImg2}
-              alt="Dog 1"
+              alt="food image"
               className="w-full h-full object-cover overflow-hidden"
             />
+            {/* <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white">
+              <h2 className="text-2xl md:text-4xl font-bold drop-shadow-lg">
+                Delicious Flavors
+              </h2>
+              <p className="text-sm md:text-lg mt-2 drop-shadow-md">
+                Explore our signature dishes
+              </p>
+            </div> */}
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="w-full h-64 md:h-72 lg:h-150 ">
+          <div className="w-full h-64 md:h-72 lg:h-100 ">
             <img
               src={CarouselImg3}
-              alt="Dog 1"
+              alt="food image"
               className="w-full h-full object-cover overflow-hidden"
             />
           </div>
         </SwiperSlide>
-       
+
         <SwiperSlide>
-          <div className="w-full h-64 md:h-72 lg:h-150">
+          <div className="w-full h-64 md:h-72 lg:h-100">
             <img
               src={CarouselImg4}
-              alt="Dog 1"
+              alt="food image"
               className="w-full h-full object-cover overflow-hidden"
             />
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="w-full h-64 md:h-72 lg:h-150">
+          <div className="w-full h-64 md:h-72 lg:h-100">
             <img
               src={CarouselImg5}
-              alt="Dog 1"
+              alt="food image"
               className="w-full h-full object-cover overflow-hidden"
             />
           </div>
         </SwiperSlide>
         {/* <SwiperSlide>
-          <div className="w-full h-64 md:h-72 lg:h-150">
+          <div className="w-full h-64 md:h-72 lg:h-100">
             <img
               src={CarouselImg6}
-              alt="Dog 1"
+              alt="food image"
               className="w-full h-full object-cover overflow-hidden"
             />
           </div>
         </SwiperSlide> */}
         <SwiperSlide>
-          <div className="w-full h-64 md:h-72 lg:h-150">
+          <div className="w-full h-64 md:h-72 lg:h-100">
             <img
               src={CarouselImg7}
-              alt="Dog 1"
+              alt="food image"
               className="w-full h-full object-cover overflow-hidden"
             />
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="w-full h-64 md:h-72 lg:h-150">
+          <div className="w-full h-64 md:h-72 lg:h-100">
             <img
               src={CarouselImg8}
-              alt="Dog 1"
+              alt="food image"
               className="w-full h-full object-cover overflow-hidden"
             />
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="w-full h-64 md:h-72 lg:h-150">
+          <div className="w-full h-64 md:h-72 lg:h-100">
             <img
               src={CarouselImg9}
-              alt="Dog 1"
+              alt="food image"
               className="w-full h-full object-cover overflow-hidden"
             />
           </div>
