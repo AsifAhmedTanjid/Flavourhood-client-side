@@ -5,7 +5,7 @@ import "./FounderMessage.css"
 const FounderMessage = () => {
   return (
     <div
-      className="relative w-full h-80 md:h-96 lg:h-120 bg-cover bg-center flex items-center justify-center founder-section "
+      className="relative w-full h-80 md:h-96 lg:h-120 bg-cover bg-center flex items-center justify-center founder-section bg-fixed "
       
     >
       
