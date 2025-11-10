@@ -23,7 +23,7 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
 const HomeSwiper = () => {
   return (
-    <div className="bg-[#f0f8ff]">
+    <div className="bg-[#FFFBF2]">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}

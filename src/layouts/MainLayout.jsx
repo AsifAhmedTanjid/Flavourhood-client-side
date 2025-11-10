@@ -5,14 +5,14 @@ import Footer from '../components/common/Footer';
 
 const MainLayout = () => {
     return (
-     <div className=" container mx-auto ">
+     <div className="">
       
-      <header>
+      <header className=" container mx-auto ">
         <nav>
          <Navbar></Navbar>
         </nav>
       </header>
-      <main className="min-h-screen  pt-20">
+      <main className="min-h-screen pt-20">
         <Outlet></Outlet>
       </main>
       <footer>

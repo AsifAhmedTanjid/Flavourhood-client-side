@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className=" bg-[#FFF8E7]/80 backdrop-blur-md border-b border-[#ffffff]/30 rounded-t-xl">
+    <div className=" bg-[#FFF8E7]/80 backdrop-blur-md border-b border-[#ffffff]/30">
       <footer className="footer sm:footer-horizontal text-base-content p-10 ">
         <nav>
           <h6 className="footer-title">Services</h6>
