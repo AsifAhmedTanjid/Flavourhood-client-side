@@ -111,7 +111,7 @@ const Register = () => {
             Taste. Review. Repeat.
           </h1>
           <h1
-            className="text-5xl font-bold text-[#FFD580] "
+            className="text-5xl font-bold text-[#FFD580] mt-5"
           >
             Connect Now!
           </h1>
