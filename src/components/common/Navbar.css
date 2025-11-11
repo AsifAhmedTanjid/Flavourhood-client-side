@@ -1,5 +1,7 @@
 .menu a.active{
-    background: #6ec1ff;
+    border-bottom: 2px solid #FF7B00;
+    /* border-bottom: #FF7B00; */
+    /* background: #FF7B00; */
     color: black;
 
 }

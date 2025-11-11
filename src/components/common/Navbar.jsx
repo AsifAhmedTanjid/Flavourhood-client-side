@@ -24,15 +24,18 @@ const Navbar = () => {
   const links = (
     <>
       <li className="mr-2">
-        <NavLink to="/i">Link1</NavLink>
+        <NavLink to="/">Home</NavLink>
+      </li>
+      <li className="mr-2">
+        <NavLink to="/allreviews">All Reviews</NavLink>
       </li>
 
       <li className="mr-2">
-        <NavLink to="/g">Link2</NavLink>
+        <NavLink to="/myreviews">My Reviews</NavLink>
       </li>
 
       <li className="mr-2">
-        <NavLink to="/h">Link3</NavLink>
+        <NavLink to="/myfavorites">My Favorites</NavLink>
       </li>
     </>
   );
@@ -90,12 +93,12 @@ const Navbar = () => {
         className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-[#FFF8E7]/80 backdrop-blur-md rounded-box w-52"
       >
         <li>
-          <Link to="/addreview" className="justify-between">
+          <NavLink to="/addreview" className="justify-between">
             Add Review
-          </Link>
+          </NavLink >
         </li>
         <li>
-          <Link to="/myreviews">My Reviews</Link>
+          <NavLink to="/myreviews">My Reviews</NavLink>
         </li>
         <li>
           <button
@@ -110,9 +113,9 @@ const Navbar = () => {
   ) : (
           <div>
             {/* <a className="btn">Login</a> */}
-            <Link to="/login">
+            <NavLink to="/login">
               <Button>Login</Button>
-            </Link>
+            </NavLink>
           </div>
         )}
       </div>
