@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaRegStar, FaStar } from 'react-icons/fa';
 import { Link } from 'react-router';
 
 const ReviewCard = ({review}) => {
@@ -23,7 +24,7 @@ const ReviewCard = ({review}) => {
                   </p>
                 </div>
                 <div className="mt-4 flex items-center justify-between">
-                  <span className="font-semibold text-[#FF3D54]">{review.rating} ⭐</span>
+                  <span className="font-semibold text-[#FF3D54]">{review.rating} <FaStar color="#FFD700" size={20} /></span>
                   <Link
                     to={`/reviews/${review.id}`}
                     className="bg-linear-to-r from-[#FF7B00] to-[#FF3D54] text-white px-4 py-2 rounded-xl text-sm hover:opacity-90 transition"

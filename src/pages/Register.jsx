@@ -188,7 +188,7 @@ const Register = () => {
               </fieldset>
             </form>
             <p>
-              Already have an account?{" "}
+              Already at the table?{" "}
               <Link to="/login" className="text-blue-700 underline">
                 Login
               </Link>
