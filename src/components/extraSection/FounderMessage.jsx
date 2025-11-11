@@ -1,11 +1,10 @@
 import React from 'react';
-import FounderMsgImg from "../../assets/founder-bg.jpg";
 import "./FounderMessage.css"
 
 const FounderMessage = () => {
   return (
     <div
-      className="relative w-full h-80 md:h-96 lg:h-120 bg-cover bg-center flex items-center justify-center founder-section bg-fixed "
+      className="relative w-full h-80 md:h-96 lg:h-120 bg-cover bg-center flex items-center justify-center founder-section"
       
     >
       
@@ -19,7 +18,7 @@ const FounderMessage = () => {
         <p className="italic mb-3">
           "Food has always been more than just taste — it's the story of people, culture, and the moments we share around the table."
         </p>
-        <p className="text-sm md:text-base ">
+        <p className="text-sm md:text-base hidden md:block">
           When we created <span className="font-semibold text-[#FFB347]">FlavorHood</span>, we wanted to bring together a community of food lovers who don't just eat, but experience flavor. Whether you're discovering a hidden street gem or reviewing your favorite restaurant — every flavor has a story, and every story deserves to be heard.
         </p>
         <div className="mt-6">
