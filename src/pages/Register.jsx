@@ -102,7 +102,7 @@ const Register = () => {
 
   return (
     <div className="hero  min-h-screen">
-      <Toaster position="top-center" reverseOrder={false} />
+      {/* <Toaster position="top-center" reverseOrder={false} /> */}
       <div className="hero-content flex-col ">
         <div className="text-center ">
           <h1

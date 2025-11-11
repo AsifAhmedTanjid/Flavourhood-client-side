@@ -1,8 +1,26 @@
 import { Link, NavLink } from "react-router";
 import "./Navbar.css";
 import Button from "./Button";
+import icon from "../../assets/favicon.png";
+import { AuthContext } from "../../contexts/AuthContext";
+import { useContext } from "react";
+import Loader from "./Loader";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
+  const { user, signoutUserFunc, setUser, loading, setLoading } =
+    useContext(AuthContext);
+  const handleSignout = () => {
+    signoutUserFunc()
+      .then(() => {
+        toast.success("Signout successful");
+        setUser(null);
+        setLoading(false);
+      })
+      .catch((e) => {
+        toast.error(e.message);
+      });
+  };
   const links = (
     <>
       <li className="mr-2">
@@ -21,7 +39,7 @@ const Navbar = () => {
 
   return (
     <div className="navbar fixed container mx-auto bg-[#FFF8E7]/80 backdrop-blur-md border-b border-[#ffffff]/30 rounded-b-xl z-50 shadow-2xs">
-      <div className="navbar-start">
+      <div className="navbar-start ">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
@@ -42,21 +60,61 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex="-1"
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content rounded-box z-1 mt-3 w-52 p-2 shadow  bg-[#FFF8E7]/80 backdrop-blur-md"
           >
-          {links}
+            {links}
           </ul>
         </div>
-        <a className="text-2xl font-bold bg-linear-to-r from-[#FF7B00] via-[#FF3D54] to-[#7CB518] bg-clip-text text-transparent">FlavorHood</a>
+        <NavLink to="/" className="flex items-center gap-3">
+          <img src={icon} alt="" className="pl-2 h-10  hidden md:block" />
+          <a className="text-3xl font-bold bg-linear-to-r from-[#FF7B00] via-[#FF3D54] to-[#7CB518] bg-clip-text text-transparent">
+            FlavorHood
+          </a>
+        </NavLink>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
-        {links}
-        </ul>
+        <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
-      <div className="navbar-end">
-        {/* <a className="btn">Login</a> */}
-        <Button> Login</Button>
+      <div className="navbar-end flex items-center h-12">
+        {loading ? (
+          <div><Loader  square ={13} offset = {15}></Loader></div>
+        ) : user ? (
+    <div className="dropdown dropdown-end pr-2">
+      <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+        <div className="w-10 rounded-full">
+          <img src={user.photoURL} alt={user.displayName} />
+        </div>
+      </label>
+      <ul
+        tabIndex={0}
+        className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-[#FFF8E7]/80 backdrop-blur-md rounded-box w-52"
+      >
+        <li>
+          <Link to="/addreview" className="justify-between">
+            Add Review
+          </Link>
+        </li>
+        <li>
+          <Link to="/myreviews">My Reviews</Link>
+        </li>
+        <li>
+          <button
+            onClick={handleSignout}
+            className="text-red-500 font-semibold hover:text-red-700 w-full text-left"
+          >
+            Logout
+          </button>
+        </li>
+      </ul>
+    </div>
+  ) : (
+          <div>
+            {/* <a className="btn">Login</a> */}
+            <Link to="/login">
+              <Button>Login</Button>
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );

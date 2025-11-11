@@ -57,9 +57,9 @@ const Login = () => {
           duration: 1500,
         });
 
-        setTimeout(() => {
-          navigate(from);
-        }, 1500);
+        
+          navigate(from)
+        
       })
       .catch((e) => {
         // console.log(e);
@@ -71,7 +71,7 @@ const Login = () => {
 
   return (
     <div className="hero min-h-screen">
-      <Toaster position="top-center" reverseOrder={false} />
+      {/* <Toaster position="top-center" reverseOrder={false} /> */}
       <div className="hero-content flex-col ">
         <div className="text-center">
           <h1 className="text-5xl font-bold text-[#FFD580]">
