@@ -6,6 +6,7 @@ import Login from "../pages/Login";
 import NotFound from "../pages/NotFound";
 import AddReview from "../pages/AddReview";
 import PrivateRoute from "../privateRoute/PrivateRoute";
+import AllReview from "../pages/AllReview";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "login",
         Component: Login,
+      },
+      {
+        path: "allreviews",
+        element:<AllReview></AllReview>,
       },
       {
         path: "addreview",

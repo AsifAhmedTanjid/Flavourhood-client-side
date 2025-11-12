@@ -1,7 +1,6 @@
 import React from "react";
-import { Link } from "react-router";
-import Button from "../common/Button";
-import ReviewCard from "./ReviewCard";
+import ReviewCard from "../components/Review/ReviewCard";
+
 
 const reviews = [
   {
@@ -60,12 +59,12 @@ const reviews = [
   },
 ];
 
-const FeaturedReviews = () => {
+const AllReview = () => {
   return (
     <section className="py-16 bg-[#FFFDF5]">
       <div className="container mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-[#FF7B00] mb-8">
-          Featured Reviews
+          Flavorful Reviews
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -73,18 +72,10 @@ const FeaturedReviews = () => {
             <ReviewCard review={review} key={review.id}></ReviewCard>
           ))}
         </div>
-
-        <div className="mt-12 flex justify-center">
-          <Link to='/allreviews'
-
-          >
-            <Button>Show All Reviews</Button>
-            
-          </Link>
-        </div>
       </div>
     </section>
   );
 };
 
-export default FeaturedReviews;
+export default AllReview;
+

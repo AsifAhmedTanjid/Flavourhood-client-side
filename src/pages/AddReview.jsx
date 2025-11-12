@@ -35,7 +35,7 @@ const AddReview = () => {
       .then((data) => {
         if (data.result.insertedId) {
           toast.success("Review added successfully!");
-          console.log(data.result.insertedId);
+        //   console.log(data.result.insertedId);
           e.target.reset();
           setRating(0);
         }
