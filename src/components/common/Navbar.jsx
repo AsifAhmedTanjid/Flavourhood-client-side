@@ -6,6 +6,10 @@ import { AuthContext } from "../../contexts/AuthContext";
 import { useContext } from "react";
 import Loader from "./Loader";
 import toast from "react-hot-toast";
+import { IoHomeOutline } from "react-icons/io5";
+import { MdFavoriteBorder, MdOutlineRateReview, MdOutlineReviews } from "react-icons/md";
+import { VscPreview } from "react-icons/vsc";
+import { BiLogOut } from "react-icons/bi";
 
 const Navbar = () => {
   const { user, signoutUserFunc, setUser, loading, setLoading } =
@@ -23,19 +27,20 @@ const Navbar = () => {
   };
   const links = (
     <>
-      <li className="mr-2">
-        <NavLink to="/">Home</NavLink>
+      <li className="mr-2 flex ">
+        
+        <NavLink to="/"> <IoHomeOutline />Home</NavLink>
       </li>
       <li className="mr-2">
-        <NavLink to="/allreviews">All Reviews</NavLink>
+        <NavLink to="/allreviews"> <VscPreview />All Reviews</NavLink>
       </li>
 
-      <li className="mr-2">
+      {/* <li className="mr-2">
         <NavLink to="/myreviews">My Reviews</NavLink>
-      </li>
+      </li> */}
 
       <li className="mr-2">
-        <NavLink to="/myfavorites">My Favorites</NavLink>
+        <NavLink to="/myfavorites"><MdFavoriteBorder /> My Favorites</NavLink>
       </li>
     </>
   );
@@ -93,19 +98,19 @@ const Navbar = () => {
         className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-[#FFF8E7]/80 backdrop-blur-md rounded-box w-52"
       >
         <li>
-          <NavLink to="/addreview" className="justify-between">
-            Add Review
+          <NavLink to="/addreview">
+            <MdOutlineRateReview /> Add Review
           </NavLink >
         </li>
         <li>
-          <NavLink to="/myreviews">My Reviews</NavLink>
+          <NavLink to="/myreviews"> <MdOutlineReviews /> My Reviews</NavLink>
         </li>
         <li>
           <button
             onClick={handleSignout}
-            className="text-red-500 font-semibold hover:text-red-700 w-full text-left"
+            className="text-red-500 font-bold hover:text-red-700 w-full text-left"
           >
-            Logout
+            <BiLogOut />Logout
           </button>
         </li>
       </ul>
