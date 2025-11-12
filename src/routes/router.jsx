@@ -4,6 +4,7 @@ import Home from "../pages/Home";
 import Register from "../pages/Register";
 import Login from "../pages/Login";
 import NotFound from "../pages/NotFound";
+import AddReview from "../pages/AddReview";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: "login",
         Component: Login,
+      },
+      {
+        path: "addreview",
+        element:<AddReview></AddReview>,
       },
       { path: "*", 
         Component: NotFound },

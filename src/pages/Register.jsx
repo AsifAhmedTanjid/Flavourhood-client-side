@@ -106,12 +106,12 @@ const Register = () => {
       <div className="hero-content flex-col ">
         <div className="text-center ">
           <h1
-            className="text-5xl font-bold  text-[#FFD580]"
+            className="text-5xl font-bold  text-[#FF7B00]"
           >
             Taste. Review. Repeat.
           </h1>
           <h1
-            className="text-5xl font-bold text-[#FFD580] mt-5"
+            className="text-5xl font-bold text-[#FF7B00] mt-5"
           >
             Connect Now!
           </h1>

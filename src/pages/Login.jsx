@@ -74,7 +74,7 @@ const Login = () => {
       {/* <Toaster position="top-center" reverseOrder={false} /> */}
       <div className="hero-content flex-col ">
         <div className="text-center">
-          <h1 className="text-5xl font-bold text-[#FFD580]">
+          <h1 className="text-5xl font-bold text-[#FF7B00]">
             Join the Table Again!
           </h1>
         </div>

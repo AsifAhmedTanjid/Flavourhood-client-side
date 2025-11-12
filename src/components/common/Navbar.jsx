@@ -25,6 +25,8 @@ const Navbar = () => {
         toast.error(e.message);
       });
   };
+  // console.log(user);
+  
   const links = (
     <>
       <li className="mr-2 flex ">
@@ -75,9 +77,9 @@ const Navbar = () => {
         </div>
         <NavLink to="/" className="flex items-center gap-3">
           <img src={icon} alt="" className="pl-2 h-10  hidden md:block" />
-          <a className="text-3xl font-bold bg-linear-to-r from-[#FF7B00] via-[#FF3D54] to-[#7CB518] bg-clip-text text-transparent">
+          <div className="text-3xl font-bold bg-linear-to-r from-[#FF7B00] via-[#FF3D54] to-[#7CB518] bg-clip-text text-transparent">
             FlavorHood
-          </a>
+          </div>
         </NavLink>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -96,7 +98,11 @@ const Navbar = () => {
       <ul
         tabIndex={0}
         className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-[#FFF8E7]/80 backdrop-blur-md rounded-box w-52"
-      >
+        >
+        <div className="mb-2 text-center">
+          <h1 className="text-sm font-semibold">{user?.displayName}</h1>
+          <h5 className="text-xs font-semibold">{user?.email}</h5>
+        </div>
         <li>
           <NavLink to="/addreview">
             <MdOutlineRateReview /> Add Review
