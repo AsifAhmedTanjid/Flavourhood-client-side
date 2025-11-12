@@ -11,7 +11,7 @@ const PrivateRoute = ({ children }) => {
   if (loading) {
     return (
       <div className="h-[97vh] flex items-center justify-center">
-        <Loader></Loader>
+        <Loader square={26} offset={30}></Loader>
       </div>
     );
   }

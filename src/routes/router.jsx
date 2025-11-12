@@ -5,6 +5,7 @@ import Register from "../pages/Register";
 import Login from "../pages/Login";
 import NotFound from "../pages/NotFound";
 import AddReview from "../pages/AddReview";
+import PrivateRoute from "../privateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -25,7 +26,9 @@ const router = createBrowserRouter([
       },
       {
         path: "addreview",
-        element:<AddReview></AddReview>,
+        element:<PrivateRoute>
+          <AddReview></AddReview>
+        </PrivateRoute>,
       },
       { path: "*", 
         Component: NotFound },

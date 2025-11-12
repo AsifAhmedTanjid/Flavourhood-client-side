@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Loader = ({square=26,offset=15}) => {
+const Loader = ({square=26,offset=30}) => {
   return (
     <StyledWrapper square={square} offset={offset}>
       <div className="loadingspinner">

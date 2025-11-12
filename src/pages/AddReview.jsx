@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FaStar } from "react-icons/fa";
 import toast from "react-hot-toast";
 import Button from "../components/common/Button";
+import { AuthContext } from "../contexts/AuthContext";
 
 const AddReview = () => {
+  const { user } = useContext(AuthContext);
+
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
 
     const reviewData = {
       foodName: e.target.foodName.value,
@@ -21,10 +23,26 @@ const AddReview = () => {
       date: new Date(),
     };
 
-    // console.log(reviewData);
-    toast.success("Review added successfully!");
-    e.target.reset();
-    setRating(0);
+    fetch("http://localhost:3000/reviews", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${user.accessToken}`,
+      },
+      body: JSON.stringify(reviewData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.result.insertedId) {
+          toast.success("Review added successfully!");
+          console.log(data.result.insertedId);
+          e.target.reset();
+          setRating(0);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -35,7 +53,6 @@ const AddReview = () => {
         </h2>
 
         <form onSubmit={handleSubmit} className="space-y-6">
-    
           <div className="grid md:grid-cols-2 gap-4">
             <div>
               <label className="block font-medium mb-1">Food Name</label>
@@ -60,10 +77,11 @@ const AddReview = () => {
             </div>
           </div>
 
-        
           <div className="grid md:grid-cols-2 gap-4">
             <div>
-              <label className="block font-medium mb-1">Restaurant Location</label>
+              <label className="block font-medium mb-1">
+                Restaurant Location
+              </label>
               <input
                 type="text"
                 name="location"
@@ -117,7 +135,6 @@ const AddReview = () => {
             )}
           </div>
 
-         
           <div>
             <label className="block font-medium mb-1">Your Review</label>
             <textarea
@@ -130,9 +147,7 @@ const AddReview = () => {
           </div>
 
           <div className="text-center">
-            <Button>
-              Submit Review
-           </Button>
+            <Button>Submit Review</Button>
           </div>
         </form>
       </div>
