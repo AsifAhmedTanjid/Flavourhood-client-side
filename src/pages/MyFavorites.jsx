@@ -7,6 +7,7 @@ import {
 import { AuthContext } from "../contexts/AuthContext";
 import Loader from "../components/common/Loader";
 import Swal from "sweetalert2";
+import NoItemFound from "../components/common/NoItemFound";
 
 
 const MyFavorites = () => {
@@ -49,7 +50,7 @@ const MyFavorites = () => {
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
-              Swal.fire("Deleted!", "Your review has been deleted.", "success");
+              Swal.fire("Deleted!", "Your favorite review has been deleted.", "success");
 
               queryClient.setQueryData(["myreviews"], (oldData = []) =>
                 oldData.filter((review) => review._id !== id)
@@ -71,7 +72,10 @@ const MyFavorites = () => {
       </div>
     );
 
-  
+    if(!data.length){
+        return <NoItemFound item="favourite"></NoItemFound>
+    }
+
 
   return (
     <div className="container mx-auto py-10">

@@ -8,6 +8,7 @@ import { AuthContext } from "../contexts/AuthContext";
 import Loader from "../components/common/Loader";
 import Swal from "sweetalert2";
 import { Link } from "react-router";
+import NoItemFound from "../components/common/NoItemFound";
 
 const MyReviews = () => {
   const { user } = useContext(AuthContext);
@@ -71,7 +72,10 @@ const MyReviews = () => {
       </div>
     );
 
-  
+   if(!data.length){
+        return <NoItemFound item="Review of yours"></NoItemFound>
+    }
+
 
   return (
     <div className="container mx-auto py-10">

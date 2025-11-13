@@ -2,6 +2,8 @@ import React from "react";
 import ReviewCard from "../components/Review/ReviewCard";
 import { useQuery } from "@tanstack/react-query";
 import Loader from "../components/common/Loader";
+import { IoBanOutline } from "react-icons/io5";
+import NoItemFound from "../components/common/NoItemFound";
 
 
 
@@ -11,9 +13,13 @@ const AllReview = () => {
         queryFn: getAllReviews
     })
 
-    // console.log(data);
+    console.log(data);
     
-
+// if(!data.length){
+//   return  <div className="h-[97vh] flex items-center justify-center">
+//         Hellor
+//       </div>
+// }
   return (
     <section className="py-10 bg-[#FFFDF5]">
       <div className="container mx-auto">
@@ -24,11 +30,11 @@ const AllReview = () => {
        {
         isPending?  <div className="h-[97vh] flex items-center justify-center">
         <Loader square={26} offset={30}></Loader>
-      </div>: <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      </div>:  data.lentgh?<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {data.map((review) => (
             <ReviewCard review={review} key={review._id}></ReviewCard>
           ))}
-        </div>
+        </div>:  <NoItemFound item="Reviews" />
        }
       </div>
     </section>

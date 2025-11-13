@@ -21,6 +21,7 @@ const AddReview = () => {
       rating,
       reviewText: e.target.reviewText.value,
       date: new Date(),
+      reviewerName:user.displayName
     };
 
     fetch("http://localhost:3000/reviews", {

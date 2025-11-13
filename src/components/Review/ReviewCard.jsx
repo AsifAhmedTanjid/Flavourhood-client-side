@@ -8,6 +8,8 @@ import Stars from "./Stars";
 const ReviewCard = ({ review }) => {
   const { user } = useContext(AuthContext);
   const [isFavorite, setIsFavorite] = useState(false);
+  console.log(review);
+  
 
 useEffect(() => {
   if (!user) {
@@ -59,7 +61,7 @@ useEffect(() => {
           reviewText: review.reviewText,
           rating: review.rating,
           date: new Date(),
-
+          reviewerName:review.reviewerName,
           reviewedBy:review.email
         }),
       });
@@ -108,7 +110,7 @@ useEffect(() => {
           <p className="text-gray-800 mt-2 text-sm">
             Reviewed by <span className="font-medium">{review.email}</span>
           </p>
-          <p className="text-gray-800 mt-2 text-sm">{review.reviewText}</p>
+          {/* <p className="text-gray-800 mt-2 text-sm">{review.reviewText}</p> */}
         </div>
 
         <div className="mt-4 flex items-center justify-between">

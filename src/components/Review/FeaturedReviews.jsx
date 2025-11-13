@@ -4,6 +4,7 @@ import Button from "../common/Button";
 import ReviewCard from "./ReviewCard";
 import { useQuery } from "@tanstack/react-query";
 import Loader from "../common/Loader";
+import NoItemFound from "../common/NoItemFound";
 
 
 
@@ -22,11 +23,11 @@ const FeaturedReviews = () => {
        {
         isPending?  <div className="h-[97vh] flex items-center justify-center">
         <Loader square={26} offset={30}></Loader>
-      </div>: <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      </div>: data.lentgh? <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {data.map((review) => (
             <ReviewCard review={review} key={review._id}></ReviewCard>
           ))}
-        </div>
+        </div>:<NoItemFound item='Featured Review'/>
        }
 
         <div className="mt-12 flex justify-center">

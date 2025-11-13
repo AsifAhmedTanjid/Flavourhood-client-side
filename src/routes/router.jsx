@@ -56,6 +56,12 @@ const router = createBrowserRouter([
           <MyFavorites></MyFavorites>
         </PrivateRoute>,
       },
+      {
+        path: "myfavorites",
+        element:<PrivateRoute>
+          <MyFavorites></MyFavorites>
+        </PrivateRoute>,
+      },
       { path: "*", 
         Component: NotFound },
     ],
