@@ -15,7 +15,7 @@ const MyFavorites = () => {
   const queryClient = useQueryClient();
 
   
-  const { data = [], isPending } = useQuery({
+  const { data = [], isFetching } = useQuery({
     queryKey: ["myfavorites"],
     queryFn: async () => {
       const response = await fetch("https://flavorhood-server-side.vercel.app/my-favorites", {
@@ -65,7 +65,7 @@ const MyFavorites = () => {
     });
   };
 
-  if (isPending)
+  if (isFetching)
     return (
       <div className="h-[97vh] flex items-center justify-center">
         <Loader square={26} offset={30} />

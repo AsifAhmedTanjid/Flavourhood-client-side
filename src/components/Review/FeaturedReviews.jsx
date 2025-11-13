@@ -9,7 +9,7 @@ import NoItemFound from "../common/NoItemFound";
 
 
 const FeaturedReviews = () => {
-    const {data,isPending} =useQuery({
+    const {data,isFetching} =useQuery({
         queryKey:['featuredreviews'],
         queryFn: getFeaturedReviews
     })
@@ -21,7 +21,7 @@ const FeaturedReviews = () => {
         </h2>
 
        {
-        isPending?  <div className="h-[97vh] flex items-center justify-center">
+        isFetching?  <div className="h-[97vh] flex items-center justify-center">
         <Loader square={26} offset={30}></Loader>
       </div>: data.length? <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {data.map((review) => (
