@@ -7,17 +7,17 @@ import {
 import { AuthContext } from "../contexts/AuthContext";
 import Loader from "../components/common/Loader";
 import Swal from "sweetalert2";
-import { Link } from "react-router";
 
-const MyReviews = () => {
+
+const MyFavorites = () => {
   const { user } = useContext(AuthContext);
   const queryClient = useQueryClient();
 
   
   const { data = [], isPending } = useQuery({
-    queryKey: ["myreviews"],
+    queryKey: ["myfavorites"],
     queryFn: async () => {
-      const response = await fetch("http://localhost:3000/my-reviews", {
+      const response = await fetch("http://localhost:3000/my-favorites", {
         headers: {
           "Content-Type": "application/json",
           authorization: `Bearer ${user.accessToken}`,
@@ -39,7 +39,7 @@ const MyReviews = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/reviews/${id}`, {
+        fetch(`http://localhost:3000/favorites/${id}`, {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",
@@ -76,7 +76,7 @@ const MyReviews = () => {
   return (
     <div className="container mx-auto py-10">
       <h2 className="text-3xl font-bold text-center text-[#FF7B00] mb-6">
-        My Reviews
+        My Favorites
       </h2>
 
       <div className="bg-white shadow-lg rounded-2xl overflow-hidden">
@@ -114,13 +114,7 @@ const MyReviews = () => {
                 </td>
                 <td className="px-4 py-3 text-center">
                   <div className="flex justify-center gap-2 flex-col md:flex-row">
-                    <Link to={`/editreview/${review._id}`}> <button
-                      
-                      className="bg-[#FF7B00] hover:bg-[#e36f00] text-white px-4 py-2 rounded-lg font-medium transition"
-                    >
-                      Edit
-                    </button>
-                    </Link>
+                 
                     <button
                       onClick={() => handleDelete(review._id)}
                       className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg font-medium transition"
@@ -138,4 +132,4 @@ const MyReviews = () => {
   );
 };
 
-export default MyReviews;
+export default MyFavorites;
