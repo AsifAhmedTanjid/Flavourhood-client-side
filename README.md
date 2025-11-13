@@ -37,7 +37,9 @@ Welcome to **Flavorhood**, a food review platform where users can explore, add, 
 
 ## Tech Stack
 - **Frontend:** React 19, Vite  
-- **Styling:** Tailwind CSS, DaisyUI, Styled Components  
+- **Styling:** Tailwind CSS, DaisyUI, Styled Components
+- **Routing:** React Router
+- **Icons:** React Icons  
 - **State Management / Data Fetching:** @tanstack/react-query   
 - **Authentication:** Firebase  
 - **Other Libraries:** Swiper, SweetAlert2, React Hot Toast, date-fns  
