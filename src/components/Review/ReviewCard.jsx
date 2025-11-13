@@ -3,6 +3,7 @@ import { FaHeart, FaRegHeart, FaStar } from "react-icons/fa";
 import { Link } from "react-router";
 import toast from "react-hot-toast";
 import { AuthContext } from "../../contexts/AuthContext";
+import Stars from "./Stars";
 
 const ReviewCard = ({ review }) => {
   const { user } = useContext(AuthContext);
@@ -112,7 +113,8 @@ useEffect(() => {
 
         <div className="mt-4 flex items-center justify-between">
           <span className="font-semibold text-[#FF3D54] flex items-center gap-2">
-            {review.rating} <FaStar color="#FFD700" size={16} />
+            {/* {review.rating} <FaStar color="#FFD700" size={16} /> */}
+            <Stars rating={review.rating}></Stars>
           </span>
 
           <Link
