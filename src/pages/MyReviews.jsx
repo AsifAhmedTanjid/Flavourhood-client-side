@@ -8,6 +8,7 @@ import {
 import { AuthContext } from "../contexts/AuthContext";
 import Loader from "../components/common/Loader";
 import Swal from "sweetalert2";
+import { Link } from "react-router";
 
 const MyReviews = () => {
   const { user } = useContext(AuthContext);
@@ -114,12 +115,13 @@ const MyReviews = () => {
                 </td>
                 <td className="px-4 py-3 text-center">
                   <div className="flex justify-center gap-2 flex-col md:flex-row">
-                    <button
-                      onClick={() => alert("Edit clicked")}
+                    <Link to={`/editreview/${review._id}`}> <button
+                      
                       className="bg-[#FF7B00] hover:bg-[#e36f00] text-white px-4 py-2 rounded-lg font-medium transition"
                     >
                       Edit
                     </button>
+                    </Link>
                     <button
                       onClick={() => handleDelete(review._id)}
                       className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg font-medium transition"
