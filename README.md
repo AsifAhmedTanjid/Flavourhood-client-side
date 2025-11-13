@@ -1,16 +1,60 @@
-# React + Vite
+# Flavorhood
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to **Flavorhood**, a food review platform where users can explore, add, and manage reviews for various dishes and restaurants. This is the **client-side** React application.
 
-Currently, two official plugins are available:
+## Live Site
+🌐 [Live Demo](https://flavorhood.netlify.app/)  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Layout & UI
+- **Main Layout:** Navbar and Footer with consistent design across all pages.  
+- **Responsive Design:** Works smoothly on mobile, tablet, and desktop devices.  
+- **Unique Foodie Design:** Clean, modern, and visually appealing UI.  
+- **Hero Section:** Image slider with banners and call-to-action buttons.  
+- **Dynamic & Static Sections:** Featured reviews, additional content sections for website purposes.  
 
-## Expanding the ESLint configuration
+### Authentication
+- Firebase Authentication (Email/Password + Google)  
+- Registration form with validation (password rules enforced)  
+- Login with redirect to intended route  
+- Toast notifications for success/failure  
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Core Functionality (CRUD)
+- **Add Review:** Protected page to submit new reviews.  
+- **All Reviews:** Public page showing all reviews with search functionality.  
+- **My Reviews:** Protected page showing the logged-in user's reviews with Edit/Delete options.  
+
+### Challenge Features
+- **Favorite System:** Users can favorite reviews, displayed on "My Favorites" page.  
+
+### Extra Features
+- Loading spinner on data fetch  
+- 404 Error page with fun design and “Back to Home” button  
+- Clean, unique, and consistent UI  
+- Search bar with MongoDB `$regex` querying  
+
+## Tech Stack
+- **Frontend:** React 19, Vite  
+- **Styling:** Tailwind CSS, DaisyUI, Styled Components  
+- **State Management / Data Fetching:** @tanstack/react-query   
+- **Authentication:** Firebase  
+- **Other Libraries:** Swiper, SweetAlert2, React Hot Toast, date-fns  
+
+## Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/your-username/flavorhood-client-side.git
+
+# Go into the project directory
+cd flavorhood-client-side
+
+# Install dependencies
+npm install
+
+# Add .env file (use .env.example as template)
+
+# Run the development server
+npm run dev

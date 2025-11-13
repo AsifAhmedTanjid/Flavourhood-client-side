@@ -120,7 +120,7 @@ const Login = () => {
             </form>
 
             <p>
-              Haven’t Joined the Table Yet?{" "}
+              Haven't Joined the Table Yet?{" "}
               <Link to="/register" className="text-blue-700 underline">
                 Register
               </Link>

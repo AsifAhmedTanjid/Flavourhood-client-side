@@ -8,7 +8,7 @@ import Stars from "./Stars";
 const ReviewCard = ({ review }) => {
   const { user } = useContext(AuthContext);
   const [isFavorite, setIsFavorite] = useState(false);
-  console.log(review);
+  // console.log(review);
   
 
 useEffect(() => {

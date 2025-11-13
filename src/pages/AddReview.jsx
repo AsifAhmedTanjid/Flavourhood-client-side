@@ -43,6 +43,7 @@ const AddReview = () => {
       })
       .catch((err) => {
         console.log(err);
+        toast.error("Could not add your review.Try again some time later")
       });
   };
 

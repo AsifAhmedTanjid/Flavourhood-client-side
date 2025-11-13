@@ -7,7 +7,7 @@ const Stars = ({ rating }) => {
     stars.push(
       <FaStar
         key={i}
-        color={i <= rating ? "#FFD700" : "#E0E0E0"} // gold if filled, gray if empty
+        color={i <= rating ? "#FFD700" : "#E0E0E0"} 
         size={16}
       />
     );

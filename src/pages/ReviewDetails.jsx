@@ -6,7 +6,7 @@ import Loader from "../components/common/Loader";
 import Stars from "../components/Review/Stars";
 
 const ReviewDetails = () => {
-  const { id } = useParams(); // get review ID from URL
+  const { id } = useParams(); 
   const [review, setReview] = useState(null);
   const [loading, setLoading] = useState(true);
 
