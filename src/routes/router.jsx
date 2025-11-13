@@ -7,6 +7,7 @@ import NotFound from "../pages/NotFound";
 import AddReview from "../pages/AddReview";
 import PrivateRoute from "../privateRoute/PrivateRoute";
 import AllReview from "../pages/AllReview";
+import MyReviews from "../pages/MyReviews";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,12 @@ const router = createBrowserRouter([
         path: "addreview",
         element:<PrivateRoute>
           <AddReview></AddReview>
+        </PrivateRoute>,
+      },
+      {
+        path: "myreviews",
+        element:<PrivateRoute>
+          <MyReviews/>
         </PrivateRoute>,
       },
       { path: "*", 

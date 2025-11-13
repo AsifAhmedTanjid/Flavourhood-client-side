@@ -11,7 +11,7 @@ const AllReview = () => {
         queryFn: getAllReviews
     })
 
-    console.log(data);
+    // console.log(data);
     
 
   return (
@@ -22,7 +22,9 @@ const AllReview = () => {
         </h2>
 
        {
-        isPending? <Loader></Loader>: <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        isPending?  <div className="h-[97vh] flex items-center justify-center">
+        <Loader square={26} offset={30}></Loader>
+      </div>: <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {data.map((review) => (
             <ReviewCard review={review} key={review._id}></ReviewCard>
           ))}
@@ -34,7 +36,7 @@ const AllReview = () => {
 };
 
 const getAllReviews=async()=>{
-    const response= await fetch("http://localhost:3000/reviews")
+    const response= await fetch("https://flavorhood-server-side.vercel.app/reviews")
     return await response.json()
 }
 
