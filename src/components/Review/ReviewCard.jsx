@@ -62,6 +62,7 @@ useEffect(() => {
           rating: review.rating,
           date: new Date(),
           reviewerName:review.reviewerName,
+
           reviewedBy:review.email
         }),
       });
@@ -81,7 +82,7 @@ useEffect(() => {
   };
 
   return (
-    <div className="relative bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col">
+    <div className="relative bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
       <img
         src={review.foodImage}
         alt={review.foodName}
@@ -108,7 +109,7 @@ useEffect(() => {
             {review.restaurantName} — {review.location}
           </p>
           <p className="text-gray-800 mt-2 text-sm">
-            Reviewed by <span className="font-medium">{review.email}</span>
+            Reviewed by <span className="font-medium">{review.reviewerName}</span>
           </p>
           {/* <p className="text-gray-800 mt-2 text-sm">{review.reviewText}</p> */}
         </div>
@@ -121,7 +122,7 @@ useEffect(() => {
 
           <Link
             to={`/reviews/${review._id}`}
-            className="bg-linear-to-r from-[#FF7B00] to-[#FF3D54] text-white px-4 py-2 rounded-xl text-sm hover:opacity-90 transition"
+            className="bg-linear-to-r from-[#FF7B00] to-[#FF3D54] text-white px-4 py-2 rounded-md text-sm hover:opacity-90 transition"
           >
             View Details
           </Link>

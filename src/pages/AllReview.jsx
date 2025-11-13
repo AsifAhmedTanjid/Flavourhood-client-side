@@ -30,11 +30,12 @@ const AllReview = () => {
        {
         isPending?  <div className="h-[97vh] flex items-center justify-center">
         <Loader square={26} offset={30}></Loader>
-      </div>:  data.lentgh?<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      </div>: data.length? <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {data.map((review) => (
             <ReviewCard review={review} key={review._id}></ReviewCard>
           ))}
-        </div>:  <NoItemFound item="Reviews" />
+        </div>
+        :  <NoItemFound item="Reviews" />
        }
       </div>
     </section>
