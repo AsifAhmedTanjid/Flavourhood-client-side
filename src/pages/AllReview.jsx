@@ -36,7 +36,7 @@ const AllReview = () => {
 };
 
 const getAllReviews=async()=>{
-    const response= await fetch("https://flavorhood-server-side.vercel.app/reviews")
+    const response= await fetch("http://localhost:3000/reviews")
     return await response.json()
 }
 

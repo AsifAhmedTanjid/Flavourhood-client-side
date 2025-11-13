@@ -1,38 +1,80 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { format } from "date-fns";
 import { motion, AnimatePresence } from "framer-motion";
-import { useQuery } from "@tanstack/react-query";
+import {
+  useQuery,
+  useQueryClient,
+} from "@tanstack/react-query";
 import { AuthContext } from "../contexts/AuthContext";
 import Loader from "../components/common/Loader";
+import Swal from "sweetalert2";
 
 const MyReviews = () => {
-  const {user}=useContext(AuthContext)
-   const {data,isPending} =useQuery({
-        queryKey:['myreviews'],
-        queryFn: async()=>{
-      const response = await fetch("https://flavorhood-server-side.vercel.app/my-reviews", {
-    headers: {
-      "Content-Type": "application/json",
-      authorization: `Bearer ${user.accessToken}`,
+  const { user } = useContext(AuthContext);
+  const queryClient = useQueryClient();
+
+  
+  const { data = [], isPending } = useQuery({
+    queryKey: ["myreviews"],
+    queryFn: async () => {
+      const response = await fetch("http://localhost:3000/my-reviews", {
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `Bearer ${user.accessToken}`,
+        },
+      });
+      return await response.json();
     },
   });
-    return await response.json()
-}
-    })
-  const [showModal, setShowModal] = useState(false);
 
-  console.log(data,user);
-  
-if(isPending) return (
+
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:3000/reviews/${id}`, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            authorization: `Bearer ${user.accessToken}`,
+          },
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              Swal.fire("Deleted!", "Your review has been deleted.", "success");
+
+              queryClient.setQueryData(["myreviews"], (oldData = []) =>
+                oldData.filter((review) => review._id !== id)
+              );
+
+             
+              queryClient.invalidateQueries(["myreviews"]);
+            }
+          })
+          .catch((err) => console.error(err));
+      }
+    });
+  };
+
+  if (isPending)
+    return (
       <div className="h-[97vh] flex items-center justify-center">
-        <Loader square={26} offset={30}></Loader>
+        <Loader square={26} offset={30} />
       </div>
     );
 
- 
+  
 
   return (
-    <div className="container mx-auto py-10 ">
+    <div className="container mx-auto py-10">
       <h2 className="text-3xl font-bold text-center text-[#FF7B00] mb-6">
         My Reviews
       </h2>
@@ -68,7 +110,7 @@ if(isPending) return (
                   {review.restaurantName}
                 </td>
                 <td className="px-4 py-3 text-gray-600 hidden md:table-cell">
-                 {format(new Date(review.date), "yyyy-MM-dd")}
+                  {format(new Date(review.date), "yyyy-MM-dd")}
                 </td>
                 <td className="px-4 py-3 text-center">
                   <div className="flex justify-center gap-2 flex-col md:flex-row">
@@ -79,7 +121,7 @@ if(isPending) return (
                       Edit
                     </button>
                     <button
-                      onClick={() => setShowModal(true)}
+                      onClick={() => handleDelete(review._id)}
                       className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg font-medium transition"
                     >
                       Delete
@@ -91,47 +133,8 @@ if(isPending) return (
           </tbody>
         </table>
       </div>
-
-    
-      <AnimatePresence>
-        {showModal && (
-          <motion.div
-            className="fixed inset-0 flex items-center justify-center  opacity-50 z-50"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            <motion.div
-              className="bg-white rounded-2xl p-6 shadow-xl max-w-sm w-full text-center"
-              initial={{ scale: 0.8 }}
-              animate={{ scale: 1 }}
-              exit={{ scale: 0.8 }}
-            >
-              <h3 className="text-lg font-semibold mb-4 text-gray-800">
-                Are you sure you want to delete this review?
-              </h3>
-              <div className="flex justify-center gap-3">
-                <button
-                  onClick={() => setShowModal(false)}
-                  className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg font-medium"
-                >
-                  Confirm
-                </button>
-                <button
-                  onClick={() => setShowModal(false)}
-                  className="bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded-lg font-medium"
-                >
-                  Cancel
-                </button>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </div>
   );
 };
-
-
 
 export default MyReviews;
