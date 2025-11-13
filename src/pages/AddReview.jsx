@@ -24,7 +24,7 @@ const AddReview = () => {
       reviewerName:user.displayName
     };
 
-    fetch("http://localhost:3000/reviews", {
+    fetch("https://flavorhood-server-side.vercel.app/reviews", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

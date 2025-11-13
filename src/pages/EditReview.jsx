@@ -16,7 +16,7 @@ const EditReview = () => {
   const [hover, setHover] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/reviews/${id}`, {
+    fetch(`https://flavorhood-server-side.vercel.app/reviews/${id}`, {
       headers: {
         authorization: `Bearer ${user.accessToken}`,
       },
@@ -42,7 +42,7 @@ const EditReview = () => {
       date: new Date(),
     };
 
-    fetch(`http://localhost:3000/reviews/${id}`, {
+    fetch(`https://flavorhood-server-side.vercel.app/reviews/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

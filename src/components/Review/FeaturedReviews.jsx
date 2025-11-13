@@ -44,7 +44,7 @@ const FeaturedReviews = () => {
 };
 
 const getFeaturedReviews=async()=>{
-    const response= await fetch("http://localhost:3000/featured")
+    const response= await fetch("https://flavorhood-server-side.vercel.app/featured")
     return await response.json()
 }
 

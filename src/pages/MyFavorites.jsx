@@ -18,7 +18,7 @@ const MyFavorites = () => {
   const { data = [], isPending } = useQuery({
     queryKey: ["myfavorites"],
     queryFn: async () => {
-      const response = await fetch("http://localhost:3000/my-favorites", {
+      const response = await fetch("https://flavorhood-server-side.vercel.app/my-favorites", {
         headers: {
           "Content-Type": "application/json",
           authorization: `Bearer ${user.accessToken}`,
@@ -40,7 +40,7 @@ const MyFavorites = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/favorites/${id}`, {
+        fetch(`https://flavorhood-server-side.vercel.app/favorites/${id}`, {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",

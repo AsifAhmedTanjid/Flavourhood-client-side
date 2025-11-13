@@ -19,7 +19,7 @@ useEffect(() => {
 
   const checkFavorite = async () => {
     try {
-      const res = await fetch(`http://localhost:3000/my-favorites`, {
+      const res = await fetch(`https://flavorhood-server-side.vercel.app/my-favorites`, {
         headers: {
           Authorization: `Bearer ${user.accessToken}`,
         },
@@ -46,7 +46,7 @@ useEffect(() => {
     }
 
     try {
-      const res = await fetch(`http://localhost:3000/favorites`, {
+      const res = await fetch(`https://flavorhood-server-side.vercel.app/favorites`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

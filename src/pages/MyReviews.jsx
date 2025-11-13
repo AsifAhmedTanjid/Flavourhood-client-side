@@ -18,7 +18,7 @@ const MyReviews = () => {
   const { data = [], isPending } = useQuery({
     queryKey: ["myreviews"],
     queryFn: async () => {
-      const response = await fetch("http://localhost:3000/my-reviews", {
+      const response = await fetch("https://flavorhood-server-side.vercel.app/my-reviews", {
         headers: {
           "Content-Type": "application/json",
           authorization: `Bearer ${user.accessToken}`,
@@ -40,7 +40,7 @@ const MyReviews = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/reviews/${id}`, {
+        fetch(`https://flavorhood-server-side.vercel.app/reviews/${id}`, {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",

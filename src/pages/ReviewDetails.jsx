@@ -13,7 +13,7 @@ const ReviewDetails = () => {
   useEffect(() => {
     const fetchReview = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/reviews/${id}`);
+        const res = await fetch(`https://flavorhood-server-side.vercel.app/reviews/${id}`);
         const data = await res.json();
         setReview(data);
       } catch (err) {
