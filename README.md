@@ -102,3 +102,8 @@ npm run dev
 }
 
 ```
+
+## 👨‍💻 Author
+
+**Asif Ahmed Tanjid**
+- GitHub: [@AsifAhmedTanjid](https://github.com/AsifAhmedTanjid)
