@@ -48,7 +48,7 @@ Welcome to **Flavorhood**, a food review platform where users can explore, add, 
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/flavorhood-client-side.git
+git clone https://github.com/AsifAhmedTanjid/flavorhood-client-side.git
 
 # Go into the project directory
 cd flavorhood-client-side
